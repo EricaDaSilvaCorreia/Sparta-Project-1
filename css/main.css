@@ -1,0 +1,47 @@
+/* .playerX {
+  background-color: red;
+}
+
+.playerY {
+  background-color: blue;
+} */
+
+.dot {
+  background: black;
+  height:10px;
+  width:10px;
+  border-radius: 50%;
+  display: inline-block;
+
+}
+
+.h_line {
+  width: 50px;
+  height: 10px;
+  display: inline-block;
+}
+
+.v_line {
+  width: 10px;
+  height: 50px;
+  float: left;
+
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+.row {
+  display: flex;
+  /* height:50px; */
+  width: 550px;
+
+}
+
+#board {
+  display: inline-block;
+  /* background-color: grey; */
+}
