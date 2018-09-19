@@ -28,19 +28,31 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   game.box1 = () => {
-    for (var i = 0; i < game.boxesArray.length; i++) {
-      if (game.boxesArray[0].attributes[1].value === 1 && game.boxesArray[0].attributes[2].value === 1) {
+    for (var i = 0; i < game.boxes.length; i++) {
+      // console.log("col = " + game.boxes[0].getAttribute('data-col'));
+      // console.log("row = " + game.boxes[0].getAttribute('data-row'));
+      if (game.boxes[0].getAttribute('data-col') === '1' && game.boxes[0].getAttribute('data-row') === '1') {
+        // console.log(game.h_linesArray);
         for (var j = 0; j < game.h_linesArray.length; j++) {
-          if (game.h_linesArray[0].attributes[0].value === 'h_line playerX'){
-            game.boxesArray[0].setAttribute('class', 'box playerX');
-          }
-        }
-      }
-    }
-  };
+
+          if ((game.h_linesArray[0].attributes[0].value === 'h_line playerY' || game.h_linesArray[0].attributes[0].value === 'h_line playerX') && (game.h_linesArray[5].attributes[0].value === 'h_line playerY' || game.h_linesArray[5].attributes[0].value === 'h_line playerX')){
+
+            for (var k = 0; k < game.v_linesArray.length; k++) {
+              if (game.v_linesArray[1].attributes[0].value === 'v_line playerY' || game.v_linesArray[1].attributes[0].value === 'v_line playerX'){
+
+                game.boxesArray[0].setAttribute('class', 'box playerX');
+                console.log(game.boxesArray[0]);
+
+                game.box1();
+              }//close if 3
+            }//close for k
+          }//close if 2
+        }//close for j
+      }//close if 1
+    }// close for i
+  };//close game.box1
 
 
-  game.box1();
 
 
   // /
@@ -81,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
           col.setAttribute('class', 'box')
           col.setAttribute('data-col', `${j}`);
           col.setAttribute('data-row', `${i}`);
-          col.setAttribute('data-click', 0);
           game.boxesArray.push(col);
         }
         row.appendChild(col)
@@ -115,29 +126,23 @@ document.addEventListener('DOMContentLoaded', () => {
           if (game.turn) {
             game.playerTurn.innerText = "It's Player Y's Turn!";
             e.target.setAttribute('class', 'h_line playerY');
-            //
+
             game.box1();
             console.log(game.box1());
-            // game.h_lineColCoors.push(e.target.getAttribute('data-col'));
-            // game.h_lineRowCoors.push(e.target.getAttribute('data-row'));
-            // game.checkBoxes();
-            // console.log(game.h_lineColCoors);
-            // console.log(game.h_lineRowCoors);
 
             game.turn = false;
-
 
           }else {
             game.playerTurn.innerText = "It's Player X's Turn!";
             e.target.setAttribute('class', 'h_line playerX');
-            // game.h_lineColCoors.push(e.target.getAttribute('data-col'));
-            // game.h_lineRowCoors.push(e.target.getAttribute('data-row'));
-            // game.checkBoxes();
+
+            game.box1();
+
             game.turn = true;
           };
         };
       });
-    };
+    };//close for horizontal
     // VERTICAL LINES
     for (var i = 0; i < game.v_linesArray.length; i++) {
       game.v_linesArray[i].addEventListener('click', function (e) {
@@ -145,25 +150,17 @@ document.addEventListener('DOMContentLoaded', () => {
           if (game.turn) {
             game.playerTurn.innerText = "It's Player Y's Turn!";
             e.target.setAttribute('class', 'v_line playerY');
-            ///
-            // game.v_lineRowCoors.push(e.target.getAttribute('data-row'));
-            // game.v_lineColCoors.push(e.target.getAttribute('data-col'));
-            ///
-            // game.checkBoxes();
+            game.box1();
             game.turn = false;
           }else {
             game.playerTurn.innerText = "It's Player X's Turn!";
             e.target.setAttribute('class', 'v_line playerX');
-            ///
-            // game.v_lineRowCoors.push(e.target.getAttribute('data-row'));
-            // game.v_lineColCoors.push(e.target.getAttribute('data-col'));
-            // ///
-            // game.checkBoxes();
+            game.box1();
             game.turn = true;
           };
         };
       });
-    };
+    };//close for vertical
   };//close setClicks
 
   game.setClicks();
