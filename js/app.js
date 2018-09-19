@@ -14,14 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
   game.v_linesArray = [];
   game.h_linesArray = [];
   game.boxesStr = ['1','3','5','7','9'];
-  ///
+
   console.log(game.v_linesArray);
-  // game.h_lineColCoors = [];
-  // game.h_lineRowCoors = [];
-  // game.v_lineColCoors = [];
-  // game.v_lineRowCoors = [];
-  ///
-  ///
+
   game.allBoxes = [
     [],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]
   ];
@@ -35,11 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             for (var k = 0; k < game.v_linesArray.length; k++) {
               if ((game.v_linesArray[0].attributes[0].value === 'v_line playerY' || game.v_linesArray[0].attributes[0].value === 'v_line playerX') && (game.v_linesArray[1].attributes[0].value === 'v_line playerY' || game.v_linesArray[1].attributes[0].value === 'v_line playerX')){
-                if (game.playerTurn.innerHTML = "It's Player Y's Turn!" ) {
+                if (game.playerTurn.innerText === "It's Player X's Turn!" ) {
+
                   game.boxesArray[0].setAttribute('class', 'box playerX');
-                }else if (game.playerTurn.innerHTML = "It's Player X's Turn!") {
+
+                }else if (game.playerTurn.innerText === "It's Player Y's Turn!") {
+
                   game.boxesArray[0].setAttribute('class', 'box playerY');
-                }
+                }//close if 4
               }//close if 3
             }//close for k
           }//close if 2
@@ -48,10 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }// close for i
   };//close game.box1
 
-
-
-
-  // /
 
   // Create 10 rows
   // Even (starting at 0) should be DOT -> H_LINE
@@ -108,11 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // when box data click value = 4, then box gets current player class and player turn repeats.
   //
 
-
-  // console.log(game.lineColCoors)
-
-
-
   game.setClicks = () => {
 
     // HORIZONTAL LINES
@@ -160,12 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };//close setClicks
 
   game.setClicks();
-
-
-
-  // console.log(game.boxesArray[0].attributes[2].value);
-  // console.log(game.h_linesArray);
-  //
 
 
 
