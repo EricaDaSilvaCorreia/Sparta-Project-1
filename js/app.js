@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   game.boxesArray = [];
   game.v_linesArray = [];
   game.h_linesArray = [];
-  game.boxesCol = [1,3,5,7,9];
-  game.boxesRow = [1,3,5,7,9];
+  game.boxesStr = ['1','3','5','7','9'];
   ///
   console.log(game.v_linesArray);
   // game.h_lineColCoors = [];
@@ -29,21 +28,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   game.box1 = () => {
     for (var i = 0; i < game.boxes.length; i++) {
-      // console.log("col = " + game.boxes[0].getAttribute('data-col'));
-      // console.log("row = " + game.boxes[0].getAttribute('data-row'));
       if (game.boxes[0].getAttribute('data-col') === '1' && game.boxes[0].getAttribute('data-row') === '1') {
-        // console.log(game.h_linesArray);
         for (var j = 0; j < game.h_linesArray.length; j++) {
 
           if ((game.h_linesArray[0].attributes[0].value === 'h_line playerY' || game.h_linesArray[0].attributes[0].value === 'h_line playerX') && (game.h_linesArray[5].attributes[0].value === 'h_line playerY' || game.h_linesArray[5].attributes[0].value === 'h_line playerX')){
 
             for (var k = 0; k < game.v_linesArray.length; k++) {
-              if (game.v_linesArray[1].attributes[0].value === 'v_line playerY' || game.v_linesArray[1].attributes[0].value === 'v_line playerX'){
-
-                game.boxesArray[0].setAttribute('class', 'box playerX');
-                console.log(game.boxesArray[0]);
-
-                game.box1();
+              if ((game.v_linesArray[0].attributes[0].value === 'v_line playerY' || game.v_linesArray[0].attributes[0].value === 'v_line playerX') && (game.v_linesArray[1].attributes[0].value === 'v_line playerY' || game.v_linesArray[1].attributes[0].value === 'v_line playerX')){
+                if (game.playerTurn.innerHTML = "It's Player Y's Turn!" ) {
+                  game.boxesArray[0].setAttribute('class', 'box playerX');
+                }else if (game.playerTurn.innerHTML = "It's Player X's Turn!") {
+                  game.boxesArray[0].setAttribute('class', 'box playerY');
+                }
               }//close if 3
             }//close for k
           }//close if 2
