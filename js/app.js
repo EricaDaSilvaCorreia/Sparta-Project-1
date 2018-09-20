@@ -14,46 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
   game.v_linesArray = [];
   game.h_linesArray = [];
   game.boxesStr = ['1','3','5','7','9'];
-
-  // console.log(game.v_linesArray);
-
-  //START FOR LOOP FUNCTION TO GET BOX 1
-
-  // game.box1 = () => {
-  //   for (var i = 0; i < game.boxes.length; i++) {
-  //     if (game.boxes[0].getAttribute('data-col') === '1' && game.boxes[0].getAttribute('data-row') === '1') {
-  //       for (var j = 0; j < game.h_linesArray.length; j++) {
-  //
-  //         if ((game.h_linesArray[0].attributes[0].value === 'h_line playerY' || game.h_linesArray[0].attributes[0].value === 'h_line playerX') && (game.h_linesArray[5].attributes[0].value === 'h_line playerY' || game.h_linesArray[5].attributes[0].value === 'h_line playerX')){
-  //
-  //           console.log(game.h_linesArray[0].attributes[0].value,game.h_linesArray[5].attributes[0].value );
-  //
-  //           for (var k = 0; k < game.v_linesArray.length; k++) {
-  //             if ((game.v_linesArray[0].attributes[0].value === 'v_line playerY' || game.v_linesArray[0].attributes[0].value === 'v_line playerX') && (game.v_linesArray[1].attributes[0].value === 'v_line playerY' || game.v_linesArray[1].attributes[0].value === 'v_line playerX')){
-  //
-  //               console.log(game.v_linesArray[0].attributes[0].value, game.v_linesArray[1].attributes[0].value );
-  //
-  //               if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-  //                 game.boxesArray[0].setAttribute('class', 'box playerX');
-  //               }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-  //                 game.boxesArray[0].setAttribute('class', 'box playerY');
-  //               }//close if 4
-  //             }//close if 3
-  //           }//close for k
-  //         }//close if 2
-  //       }//close for j
-  //     }//close if 1
-  //   }// close for i
-  // };//close game.box1
-
-
-
-  //END FOR LOOP FUNCTION TO GET BOX 1
   game.xyArray = [];
+  game.boxesTaken = [];
 
-  // game.xyCheckLast = () => {
-  //   const last = game.xyArray[game.xyArray.length -1];
-  // }
+  game.clearArr = ()=>{
+    // if (game.boxesTaken.length ++ ) {
+    game.xyArray.length = 0;
+    // }
+  }
+
 
   //START OF THE IF OF DOOM
   game.box1 = () => {
@@ -73,17 +42,25 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[0].attributes[0].value);
           console.log(game.v_linesArray[1].attributes[0].value);
 
-          if (game.xyArray[game.xyArray.length -1] === "h_line playerY" || game.xyArray[game.xyArray.length -1] === "v_line playerY" ) {
-            game.boxes[0].setAttribute('class', 'box playerY');
-          }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX" || game.xyArray[game.xyArray.length -1] === "v_line playerX") {
-            game.boxes[0].setAttribute('class', 'box playerX');
+          // if (game.boxes[0].attributes[0].value === 'box') {
+
+          if (game.boxes[0].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[0].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[0].attributes[0].value);
+              game.boxes[0].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[0].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[0].attributes[0].value);
+              game.boxes[0].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+
+            }//close if 5
 
           }//close if 4
-
         }//close if 3
-
       }// close if 2
-
     }// close if square 1
     ///SQUARE 2
     if (game.boxes[1].getAttribute('data-col') === '3' && game.boxes[1].getAttribute('data-row') === '1') {
@@ -100,14 +77,20 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[1].attributes[0].value);
           console.log(game.v_linesArray[2].attributes[0].value);
 
-          if (game.xyArray[game.xyArray.length -1] === "h_line playerY" || game.xyArray[game.xyArray.length -1] === "v_line playerY") {
-            game.boxes[1].setAttribute('class', 'box playerX');
+          if (game.boxes[1].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[1].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[1].attributes[0].value);
+              game.boxes[1].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[1].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[1].attributes[0].value);
+              game.boxes[1].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX" || game.xyArray[game.xyArray.length -1] === "v_line playerX") {
-            game.boxes[1].setAttribute('class', 'box playerY');
-
+            }//close if 5
           }//close if 4
-
         }//close if 3
       }// close if 2
 
@@ -127,14 +110,20 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[2].attributes[0].value);
           console.log(game.v_linesArray[3].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[2].setAttribute('class', 'box playerX');
+          if (game.boxes[2].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[2].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[2].attributes[0].value);
+              game.boxes[2].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[2].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[2].attributes[0].value);
+              game.boxes[2].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[2].setAttribute('class', 'box playerY');
-
+            }//close if 5
           }//close if 4
-
         }//close if 3
       }// close if 2
 
@@ -154,11 +143,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[3].attributes[0].value);
           console.log(game.v_linesArray[4].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[3].setAttribute('class', 'box playerX');
+          if (game.boxes[3].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[3].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[3].attributes[0].value);
+              game.boxes[3].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[3].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[3].attributes[0].value);
+              game.boxes[3].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[3].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -181,11 +178,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[4].attributes[0].value);
           console.log(game.v_linesArray[5].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[4].setAttribute('class', 'box playerX');
+          if (game.boxes[4].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[4].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[4].attributes[0].value);
+              game.boxes[4].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[4].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[4].attributes[0].value);
+              game.boxes[4].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[4].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -210,14 +215,21 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[6].attributes[0].value);
           console.log(game.v_linesArray[7].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[5].setAttribute('class', 'box playerX');
+          if (game.boxes[5].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[5].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[5].attributes[0].value);
+              game.boxes[5].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[5].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[5].attributes[0].value);
+              game.boxes[5].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[5].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
-
         }//close if 3
       }// close if 2
 
@@ -238,11 +250,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[7].attributes[0].value);
           console.log(game.v_linesArray[8].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[6].setAttribute('class', 'box playerX');
+          if (game.boxes[6].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[6].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[6].attributes[0].value);
+              game.boxes[6].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[6].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[6].attributes[0].value);
+              game.boxes[6].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[6].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -266,14 +286,21 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[8].attributes[0].value);
           console.log(game.v_linesArray[9].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[7].setAttribute('class', 'box playerX');
+          if (game.boxes[7].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[7].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[7].attributes[0].value);
+              game.boxes[7].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[7].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[7].attributes[0].value);
+              game.boxes[7].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[7].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
-
         }//close if 3
       }// close if 2
 
@@ -294,11 +321,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[9].attributes[0].value);
           console.log(game.v_linesArray[10].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[8].setAttribute('class', 'box playerX');
+          if (game.boxes[8].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[8].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[8].attributes[0].value);
+              game.boxes[8].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[8].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[8].attributes[0].value);
+              game.boxes[8].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[8].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -322,11 +357,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[10].attributes[0].value);
           console.log(game.v_linesArray[11].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[9].setAttribute('class', 'box playerX');
+          if (game.boxes[9].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[9].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[9].attributes[0].value);
+              game.boxes[9].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[9].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[9].attributes[0].value);
+              game.boxes[9].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[9].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -351,11 +394,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[12].attributes[0].value);
           console.log(game.v_linesArray[13].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[10].setAttribute('class', 'box playerX');
+          if (game.boxes[10].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[10].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[10].attributes[0].value);
+              game.boxes[10].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[10].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[10].attributes[0].value);
+              game.boxes[10].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[10].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -379,11 +430,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[13].attributes[0].value);
           console.log(game.v_linesArray[14].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[11].setAttribute('class', 'box playerX');
+          if (game.boxes[11].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[11].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[11].attributes[0].value);
+              game.boxes[11].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[11].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[11].attributes[0].value);
+              game.boxes[11].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[11].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -407,11 +466,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[14].attributes[0].value);
           console.log(game.v_linesArray[15].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[12].setAttribute('class', 'box playerX');
+          if (game.boxes[12].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[12].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[12].attributes[0].value);
+              game.boxes[12].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[12].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[12].attributes[0].value);
+              game.boxes[12].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[12].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -435,11 +502,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[15].attributes[0].value);
           console.log(game.v_linesArray[16].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[13].setAttribute('class', 'box playerX');
+          if (game.boxes[13].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[13].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[13].attributes[0].value);
+              game.boxes[13].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[13].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[13].attributes[0].value);
+              game.boxes[13].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[13].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -463,14 +538,21 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[16].attributes[0].value);
           console.log(game.v_linesArray[17].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[14].setAttribute('class', 'box playerX');
+          if (game.boxes[14].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[14].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[14].attributes[0].value);
+              game.boxes[14].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[14].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[14].attributes[0].value);
+              game.boxes[14].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[14].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
-
         }//close if 3
       }// close if 2
 
@@ -492,11 +574,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[18].attributes[0].value);
           console.log(game.v_linesArray[19].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[15].setAttribute('class', 'box playerX');
+          if (game.boxes[15].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[15].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[15].attributes[0].value);
+              game.boxes[15].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[15].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[15].attributes[0].value);
+              game.boxes[15].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[15].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -520,11 +610,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[19].attributes[0].value);
           console.log(game.v_linesArray[20].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[16].setAttribute('class', 'box playerX');
+          if (game.boxes[16].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[16].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[16].attributes[0].value);
+              game.boxes[16].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[16].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[16].attributes[0].value);
+              game.boxes[16].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[16].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -548,14 +646,21 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[20].attributes[0].value);
           console.log(game.v_linesArray[21].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[17].setAttribute('class', 'box playerX');
+          if (game.boxes[17].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[17].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[17].attributes[0].value);
+              game.boxes[17].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[17].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[17].attributes[0].value);
+              game.boxes[17].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[17].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
-
         }//close if 3
       }// close if 2
 
@@ -576,11 +681,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[21].attributes[0].value);
           console.log(game.v_linesArray[22].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[18].setAttribute('class', 'box playerX');
+          if (game.boxes[18].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[18].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[18].attributes[0].value);
+              game.boxes[18].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[18].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[18].attributes[0].value);
+              game.boxes[18].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[18].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -604,14 +717,21 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[22].attributes[0].value);
           console.log(game.v_linesArray[23].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[19].setAttribute('class', 'box playerX');
+          if (game.boxes[19].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[19].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[19].attributes[0].value);
+              game.boxes[19].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[19].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[19].attributes[0].value);
+              game.boxes[19].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[19].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
-
         }//close if 3
       }// close if 2
 
@@ -633,11 +753,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[20].attributes[0].value);
           console.log(game.v_linesArray[21].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[20].setAttribute('class', 'box playerX');
+          if (game.boxes[20].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[20].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[20].attributes[0].value);
+              game.boxes[20].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[20].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[20].attributes[0].value);
+              game.boxes[20].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[20].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -661,14 +789,21 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[25].attributes[0].value);
           console.log(game.v_linesArray[26].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[21].setAttribute('class', 'box playerX');
+          if (game.boxes[21].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[21].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[21].attributes[0].value);
+              game.boxes[21].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[21].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[21].attributes[0].value);
+              game.boxes[21].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[21].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
-
         }//close if 3
       }// close if 2
 
@@ -689,11 +824,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[26].attributes[0].value);
           console.log(game.v_linesArray[27].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[22].setAttribute('class', 'box playerX');
+          if (game.boxes[22].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[22].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[22].attributes[0].value);
+              game.boxes[22].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[22].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[22].attributes[0].value);
+              game.boxes[22].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[22].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -717,11 +860,19 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[27].attributes[0].value);
           console.log(game.v_linesArray[28].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[23].setAttribute('class', 'box playerX');
+          if (game.boxes[23].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[23].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[23].attributes[0].value);
+              game.boxes[23].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[23].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[23].attributes[0].value);
+              game.boxes[23].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[23].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
 
@@ -745,14 +896,21 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[28].attributes[0].value);
           console.log(game.v_linesArray[29].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[24].setAttribute('class', 'box playerX');
+          if (game.boxes[24].getAttribute('isColored') === 'false') {
+            if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
+              game.boxes[24].setAttribute('class', 'box playerY');
+              game.boxesTaken.push(game.boxes[24].attributes[0].value);
+              game.boxes[24].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
+            }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX"|| game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+              game.boxes[24].setAttribute('class', 'box playerX');
+              game.boxesTaken.push(game.boxes[24].attributes[0].value);
+              game.boxes[24].setAttribute('isColored', 'true');
+                console.log(game.boxesTaken);
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
-            game.boxes[24].setAttribute('class', 'box playerY');
+            }//close if 5
 
           }//close if 4
-
         }//close if 3
       }// close if 2
 
@@ -797,6 +955,7 @@ document.addEventListener('DOMContentLoaded', () => {
           col.setAttribute('class', 'box')
           col.setAttribute('data-col', `${j}`);
           col.setAttribute('data-row', `${i}`);
+          col.setAttribute('isColored', 'false')
           game.boxesArray.push(col);
         }
         row.appendChild(col)
@@ -824,21 +983,21 @@ document.addEventListener('DOMContentLoaded', () => {
       game.h_linesArray[i].addEventListener('click', function (e) {
         if (e.target.innerHTML.length === 0) {
           if (game.turn) {
+            game.clearArr();
             game.playerTurn.innerText = "It's Player Y's Turn!";
             e.target.setAttribute('class', 'h_line playerX');
-
+            game.xyArray.push(e.target.getAttribute('class'));
             game.box1();
-            game.xyArray.push(e.target.getAttribute('class'))
             console.log(game.xyArray);
             // console.log(game.box1());
 
             game.turn = false;
 
           }else {
+            game.clearArr();
             game.playerTurn.innerText = "It's Player X's Turn!";
             e.target.setAttribute('class', 'h_line playerY');
             game.xyArray.push(e.target.getAttribute('class'));
-
             game.box1();
             console.log(game.xyArray);
 
@@ -852,16 +1011,18 @@ document.addEventListener('DOMContentLoaded', () => {
       game.v_linesArray[i].addEventListener('click', function (e) {
         if (e.target.innerHTML.length === 0) {
           if (game.turn) {
+            game.clearArr();
             game.playerTurn.innerText = "It's Player Y's Turn!";
             e.target.setAttribute('class', 'v_line playerX');
-            game.xyArray.push(e.target.getAttribute('class'))
+            game.xyArray.push(e.target.getAttribute('class'));
             game.box1();
             console.log(game.xyArray);
             game.turn = false;
           }else {
+            game.clearArr();
             game.playerTurn.innerText = "It's Player X's Turn!";
             e.target.setAttribute('class', 'v_line playerY');
-            game.xyArray.push(e.target.getAttribute('class'))
+            game.xyArray.push(e.target.getAttribute('class'));
             game.box1();
             game.turn = true;
             console.log(game.xyArray);
