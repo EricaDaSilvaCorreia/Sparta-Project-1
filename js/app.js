@@ -46,7 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
   //   }// close for i
   // };//close game.box1
 
+
+
   //END FOR LOOP FUNCTION TO GET BOX 1
+  game.xyArray = [];
+
+  // game.xyCheckLast = () => {
+  //   const last = game.xyArray[game.xyArray.length -1];
+  // }
 
   //START OF THE IF OF DOOM
   game.box1 = () => {
@@ -66,15 +73,15 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[0].attributes[0].value);
           console.log(game.v_linesArray[1].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
-            game.boxes[0].setAttribute('class', 'box playerX');
-
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
+          if (game.xyArray[game.xyArray.length -1] === "h_line playerY" || game.xyArray[game.xyArray.length -1] === "v_line playerY" ) {
             game.boxes[0].setAttribute('class', 'box playerY');
+          }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX" || game.xyArray[game.xyArray.length -1] === "v_line playerX") {
+            game.boxes[0].setAttribute('class', 'box playerX');
 
           }//close if 4
 
         }//close if 3
+
       }// close if 2
 
     }// close if square 1
@@ -93,10 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[1].attributes[0].value);
           console.log(game.v_linesArray[2].attributes[0].value);
 
-          if (game.playerTurn.innertext = "It's Player Y's Turn!" ) {
+          if (game.xyArray[game.xyArray.length -1] === "h_line playerY" || game.xyArray[game.xyArray.length -1] === "v_line playerY") {
             game.boxes[1].setAttribute('class', 'box playerX');
 
-          }else if (game.playerTurn.innerText = "It's Player X's Turn!") {
+          }else if (game.xyArray[game.xyArray.length -1] === "h_line playerX" || game.xyArray[game.xyArray.length -1] === "v_line playerX") {
             game.boxes[1].setAttribute('class', 'box playerY');
 
           }//close if 4
@@ -821,6 +828,8 @@ document.addEventListener('DOMContentLoaded', () => {
             e.target.setAttribute('class', 'h_line playerX');
 
             game.box1();
+            game.xyArray.push(e.target.getAttribute('class'))
+            console.log(game.xyArray);
             // console.log(game.box1());
 
             game.turn = false;
@@ -828,8 +837,10 @@ document.addEventListener('DOMContentLoaded', () => {
           }else {
             game.playerTurn.innerText = "It's Player X's Turn!";
             e.target.setAttribute('class', 'h_line playerY');
+            game.xyArray.push(e.target.getAttribute('class'));
 
             game.box1();
+            console.log(game.xyArray);
 
             game.turn = true;
           };
@@ -843,13 +854,17 @@ document.addEventListener('DOMContentLoaded', () => {
           if (game.turn) {
             game.playerTurn.innerText = "It's Player Y's Turn!";
             e.target.setAttribute('class', 'v_line playerX');
+            game.xyArray.push(e.target.getAttribute('class'))
             game.box1();
+            console.log(game.xyArray);
             game.turn = false;
           }else {
             game.playerTurn.innerText = "It's Player X's Turn!";
             e.target.setAttribute('class', 'v_line playerY');
+            game.xyArray.push(e.target.getAttribute('class'))
             game.box1();
             game.turn = true;
+            console.log(game.xyArray);
           };
         };
       });
