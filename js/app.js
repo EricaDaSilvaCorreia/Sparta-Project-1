@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+
   //START OF THE IF OF DOOM
   game.box1 = () => {
     ///ROW = 1 DATA-ROW =1
@@ -42,8 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(game.v_linesArray[0].attributes[0].value);
           console.log(game.v_linesArray[1].attributes[0].value);
 
-          // if (game.boxes[0].attributes[0].value === 'box') {
-
           if (game.boxes[0].getAttribute('isColored') === 'false') {
             if (game.xyArray[game.xyArray.length -1] === "h_line playerY"|| game.xyArray[game.xyArray.length -1] === "v_line playerY") {
               game.boxes[0].setAttribute('class', 'box playerY');
@@ -57,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(game.boxesTaken);
 
             }//close if 5
-
           }//close if 4
         }//close if 3
       }// close if 2
@@ -988,6 +986,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.target.setAttribute('class', 'h_line playerX');
             game.xyArray.push(e.target.getAttribute('class'));
             game.box1();
+
             console.log(game.xyArray);
             // console.log(game.box1());
 
@@ -999,6 +998,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.target.setAttribute('class', 'h_line playerY');
             game.xyArray.push(e.target.getAttribute('class'));
             game.box1();
+
             console.log(game.xyArray);
 
             game.turn = true;
