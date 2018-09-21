@@ -4,11 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
   //===== Game Board ====//
   game.board = document.getElementById('board');
   game.playerTurn = document.getElementById('playerturn');
+  game.scoreX = document.getElementById('scoreX');
+  game.scoreY = document.getElementById('scoreY');
   game.turn = true;
   game.plane = document.createElement('div');
   // game.match = false;
 
   game.board.appendChild(game.plane);
+
 
   game.boxesArray = [];
   game.v_linesArray = [];
@@ -18,6 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
   game.boxesTaken = [];
   game.boxesTakenX = [];
   game.boxesTakenY = [];
+
+  game.inGameScore = () => {
+    game.scoreX.innerText = `PLAYER X SCORE : ${game.boxesTakenX.length}`
+    game.scoreY.innerText = `PLAYER Y SCORE : ${game.boxesTakenY.length}`
+  }
 
   game.winCheck = () => {
     if (game.boxesTaken.length === 25) {
@@ -39,15 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // }
   };
 
-  game.moveAgain = () => {
-    if (game.boxes[game.boxes.length -1] === "box playerX") {
-      game.turn = true;
-      game.setClicks();
-    }else if (game.boxes[game.boxes.length -1] === "box playerY") {
-      game.turn = false;
-      game.setClicks();
-    }
-  }
+  // game.moveAgain = () => {
+  //   // if (game.boxesTakenX === "box playerX") {
+  //   //   game.turn = true;
+  //   //   // game.setClicks();
+  //   // }else if (game.boxesTaken[game.boxesTaken.length -1] === "box playerY") {
+  //   //   game.turn = false;
+  //   //   // game.setClicks();
+  //   // }else if (game.boxes) {
+  //   //
+  //   // }
+  //   for (var i = 0; i < game.boxesTakenX.length; i++) {
+  //     game.boxesTakenX[i].
+  //   }
+  // }
 
   //START OF THE IF OF DOOM
   game.box1 = () => {
@@ -239,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
               game.boxesTaken.push(game.boxes[6].attributes[0].value);
               game.boxesTakenX.push(game.boxes[0].attributes[0].value);
               game.boxes[6].setAttribute('isColored', 'true');
-                console.log(game.boxesTaken);
+              console.log(game.boxesTaken);
 
             }//close if 5
           }//close if 4
@@ -755,7 +768,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Odd (starting at 1) should be V_LINE -> BOX
   // // V_LINE -> BOX should alternate
 
-//create grid
+  //create grid
   for (var i = 0; i < 11; i++) {
     const row = document.createElement('div');
     row.setAttribute('class','row')
@@ -770,6 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
           col.setAttribute('class', 'h_line');
           col.setAttribute('data-col', `${j}`);
           col.setAttribute('data-row', `${i}`);
+          col.setAttribute('isClicked', 'false');
           game.h_linesArray.push(col);
         }
         row.appendChild(col)
@@ -781,6 +795,7 @@ document.addEventListener('DOMContentLoaded', () => {
           col.setAttribute('class', 'v_line');
           col.setAttribute('data-col', `${j}`);
           col.setAttribute('data-row', `${i}`);
+          col.setAttribute('isClicked', 'false')
           game.v_linesArray.push(col);
         } else {
           col.setAttribute('class', 'box')
@@ -812,23 +827,26 @@ document.addEventListener('DOMContentLoaded', () => {
             game.clearArr();
             game.playerTurn.innerText = "It's Player Y's Turn!";
             e.target.setAttribute('class', 'h_line playerX');
+            e.target.setAttribute('isClicked', 'true');
             game.xyArray.push(e.target.getAttribute('class'));
             game.box1();
+            game.inGameScore();
             game.winCheck();
-            console.log(game.xyArray);
+            // game.moveAgain();
             game.turn = false;
-            game.moveAgain();
 
           }else {
             game.clearArr();
             game.playerTurn.innerText = "It's Player X's Turn!";
             e.target.setAttribute('class', 'h_line playerY');
+            e.target.setAttribute('isClicked', 'true');
             game.xyArray.push(e.target.getAttribute('class'));
             game.box1();
+            game.inGameScore();
             game.winCheck();
-            console.log(game.xyArray);
+            // game.moveAgain();
             game.turn = true;
-            game.moveAgain();
+
           };
         };
       });
@@ -837,26 +855,31 @@ document.addEventListener('DOMContentLoaded', () => {
     for (var i = 0; i < game.v_linesArray.length; i++) {
       game.v_linesArray[i].addEventListener('click', function (e) {
         if (e.target.innerHTML.length === 0) {
+          console.log(game.boxesTaken);
           if (game.turn) {
             game.clearArr();
             game.playerTurn.innerText = "It's Player Y's Turn!";
             e.target.setAttribute('class', 'v_line playerX');
+            e.target.setAttribute('isClicked', 'true');
             game.xyArray.push(e.target.getAttribute('class'));
             game.box1();
-              game.winCheck();
-            console.log(game.xyArray);
+            game.inGameScore();
+            game.winCheck();
+            // game.moveAgain();
             game.turn = false;
-            game.moveAgain();
+
           }else {
             game.clearArr();
             game.playerTurn.innerText = "It's Player X's Turn!";
             e.target.setAttribute('class', 'v_line playerY');
+            e.target.setAttribute('isClicked', 'true');
             game.xyArray.push(e.target.getAttribute('class'));
             game.box1();
+            game.inGameScore();
             game.winCheck();
+            // game.moveAgain();
             game.turn = true;
-            console.log(game.xyArray);
-            game.moveAgain();
+
           };
         };
       });

@@ -5,6 +5,9 @@
 
 Create a game using the skills you've learned so far.
 
+For my game, I decided to recreate a 5x5 version of the dots and boxes. 
+Dots and boxes is a two player game in which each player take turns drawing lines between the dots on the game board either horizontally or vertically. The player who draws the last line on a 1x1 box wins the box and thus also earns a point. When a box is taken then the player who took that box gets another turn. This continues until the whole grid is full, in this case all 25 boxes are taken, and no more lines can be drawn. The player with the most boxes at the end of the game wins.
+
 
 ####Tech Used :
 **JavaScript, HTML DOM, CSS**
@@ -24,11 +27,12 @@ Create a game using the skills you've learned so far.
 #####Challenges :
 
 The main issues I had with this project was with the functionality of the game: the boxes and getting them to register that all adjacent lines had been clicked. 
-Tried different methods, nothing's stuck so far. one of them came pretty close but it was targeted at a specific box and because of the loops I used it would just keep searching when I used console.log()
+Tried different methods, nothing's stuck so far. one of them came pretty close but it was targeted at a specific box and because of the loops I used it would just keep searching when I used console.log().
 
-*please see code for reference.
+After not getting the desired results with the loops I decided to target the boxes individually with if statements which worked. The issue that came with that was that the boxes only adopted the playerX class. I solved it by instead of having the player indicator be the deciding factor, to make an array into which the line class would be pushed everytime a player clicked and also be cleared after everyturn. then by adding an attribute to the boxes when they are first created and setting this from false to true everytime a box was taken the box would adopt the correct class and not change at every click.
 
-Going to keep working on it, code on github should be the current code. I'll try to update code and Readme as frequently as possible.
+next issue was the repeating of the player turn. as mentioned above in the description: whenever a box is taken, the player who took the box gets another turn.
+
 
 ~~~javascript
 ~~~
