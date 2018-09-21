@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   game.howToPlay = document.getElementById('how');
   game.turn = true;
   game.plane = document.createElement('div');
-  // game.match = false;
 
   game.board.appendChild(game.plane);
 
@@ -18,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   game.boxesArray = [];
   game.v_linesArray = [];
   game.h_linesArray = [];
-  // game.boxesStr = ['1','3','5','7','9'];
   game.xyArray = [];
   game.boxesTaken = [];
   game.boxesTakenX = [];
@@ -42,9 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   game.clearArr = ()=>{
-    // if (game.boxesTaken.length ++ ) {
     game.xyArray.length = 0;
-    // }
   };
   //START OF THE IF OF DOOM
   game.box1 = () => {
@@ -764,7 +760,6 @@ document.addEventListener('DOMContentLoaded', () => {
           col.setAttribute('class', 'h_line');
           col.setAttribute('data-col', `${j}`);
           col.setAttribute('data-row', `${i}`);
-          // col.setAttribute('isClicked', 'false');
           game.h_linesArray.push(col);
         }
         row.appendChild(col)
@@ -776,7 +771,6 @@ document.addEventListener('DOMContentLoaded', () => {
           col.setAttribute('class', 'v_line');
           col.setAttribute('data-col', `${j}`);
           col.setAttribute('data-row', `${i}`);
-          // col.setAttribute('isClicked', 'false')
           game.v_linesArray.push(col);
         } else {
           col.setAttribute('class', 'box')

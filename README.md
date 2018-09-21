@@ -1,7 +1,7 @@
 # Sparta-Project-1
 **By : Erica P da Silva Correia**
 
-####Work description :
+#### Work description :
 
 Create a game using the skills you've learned so far.
 
@@ -9,11 +9,11 @@ For my game, I decided to recreate a 5x5 version of the dots and boxes.
 Dots and boxes is a two player game in which each player take turns drawing lines between the dots on the game board either horizontally or vertically. The player who draws the last line on a 1x1 box wins the box and thus also earns a point. This continues until the whole grid is full, in this case all 25 boxes are taken, and no more lines can be drawn. The player with the most boxes at the end of the game wins.
 
 
-####Tech Used :
+#### Tech Used :
 **JavaScript, HTML DOM, CSS**
 
 -----
-#####how to download :
+##### how to download :
 
 
 1. go to the github page [**https://github.com/EricaDaSilvaCorreia**](https://github.com/EricaDaSilvaCorreia)
@@ -23,12 +23,12 @@ Dots and boxes is a two player game in which each player take turns drawing line
 
 -----
 
-#####Link to live page :
+##### Link to live page :
 
 --------
 
 
-#####Challenges :
+##### Challenges :
 
 The main issues I had with this project was with the functionality of the game: the boxes and getting them to register that all adjacent lines had been clicked. 
 Tried different methods, nothing's stuck so far. one of them came pretty close but it was targeted at a specific box and because of the loops I used it would just keep searching when I used console.log().
@@ -53,7 +53,7 @@ I've basically now put everything on a single page and will expand on it later o
 
 -----
 
-#####Take-Aways :
+##### Take-Aways :
 
 So far I'm enjoying the challenge. It can be quite frustrating at times but it wouldn't be a challenge if it wasn't, smooth seas don't make good sailors. It's also highlighted some issues I should work on improving moving forward. There were  many times I felt like giving up on it and switching games but I stuck with it and I'm pretty proud of that. I feel like the game expanded my knowledge and I'm pretty happy about my progress. 
 
