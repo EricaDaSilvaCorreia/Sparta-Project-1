@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   game.playerTurn = document.getElementById('playerturn');
   game.scoreX = document.getElementById('scoreX');
   game.scoreY = document.getElementById('scoreY');
+  game.resetBtn = document.getElementById('reset')
   game.turn = true;
   game.plane = document.createElement('div');
   // game.match = false;
@@ -887,5 +888,9 @@ document.addEventListener('DOMContentLoaded', () => {
   };//close setClicks
 
   game.setClicks();
+
+  game.resetBtn.addEventListener('click', () => {
+    location.reload();
+  })
 
 });//document.addEventListener close

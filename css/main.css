@@ -42,7 +42,7 @@
 
 #board {
   display: inline-block;
-  padding-top: 50px;
+  padding-top: 30px;
   /* background-color: grey; */
 }
 
@@ -54,4 +54,8 @@
   display: inline;
     font-size: 14px;
     padding-top: 30px;
+}
+
+button{
+  margin-top: 25px;
 }
