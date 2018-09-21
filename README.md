@@ -23,6 +23,10 @@ Dots and boxes is a two player game in which each player take turns drawing line
 
 -----
 
+#####Link to live page :
+
+--------
+
 
 #####Challenges :
 
@@ -31,17 +35,29 @@ Tried different methods, nothing's stuck so far. one of them came pretty close b
 
 After not getting the desired results with the loops I decided to target the boxes individually with if statements which worked. The issue that came with that was that the boxes only adopted the playerX class. I solved it by instead of having the player indicator be the deciding factor, to make an array into which the line class would be pushed everytime a player clicked and also be cleared after everyturn. then by adding an attribute to the boxes when they are first created and setting this from false to true everytime a box was taken the box would adopt the correct class and not change at every click.
 
-next issue was the repeating of the player turn. as mentioned above in the description: whenever a box is taken, the player who took the box gets another turn.
+next issue was the repeating of the player turn. as mentioned above in the description: whenever a box is taken, the player who took the box gets another turn which I wil leave for the next sprint. But this is what I had for that.
 
 
 ~~~javascript
+  game.moveAgain = () => {
+    if (game.boxesTaken[game.boxesTaken.length -1] === "box playerX") {
+      game.turn = true;
+    }else if (game.boxesTaken[game.boxesTaken.length -1] === "box playerY") {
+      game.turn = false;
+    }
+  }
+
 ~~~
+
+I've basically now put everything on a single page and will expand on it later on.
 
 -----
 
 #####Take-Aways :
 
-So far I'm enjoying the challenge. It can be quite frustrating at times but it wouldn't be a challenge if it wasn't, smooth seas don't make good sailors. It's highlighted some issues I should work on improving moving forward.
+So far I'm enjoying the challenge. It can be quite frustrating at times but it wouldn't be a challenge if it wasn't, smooth seas don't make good sailors. It's also highlighted some issues I should work on improving moving forward. There were  many times I felt like giving up on it and switching games but I stuck with it and I'm pretty proud of that. I feel like the game expanded my knowledge and I'm pretty happy about my progress. 
+
+I give it a 11/10 on the difficulty skill and I'll give myself a 7/10.
 
 -----
 

@@ -32,11 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (game.boxesTaken.length === 25) {
       if ((game.boxesTakenX.length) >
       (game.boxesTakenY.length)) {
-        console.log('playerX wins!');
         alert('playerX wins!')
       }else if ((game.boxesTakenX.length) <
       (game.boxesTakenY.length)) {
-        console.log('playerY wins!');
         alert('playerY wins!')
       }
     }
@@ -47,22 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     game.xyArray.length = 0;
     // }
   };
-
-  // game.moveAgain = () => {
-  //   // if (game.boxesTakenX === "box playerX") {
-  //   //   game.turn = true;
-  //   //   // game.setClicks();
-  //   // }else if (game.boxesTaken[game.boxesTaken.length -1] === "box playerY") {
-  //   //   game.turn = false;
-  //   //   // game.setClicks();
-  //   // }else if (game.boxes) {
-  //   //
-  //   // }
-  //   for (var i = 0; i < game.boxesTakenX.length; i++) {
-  //     game.boxesTakenX[i].
-  //   }
-  // }
-
   //START OF THE IF OF DOOM
   game.box1 = () => {
     ///ROW = 1 DATA-ROW =1
@@ -777,7 +759,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (i % 2 === 0) {
       for (var j = 0; j < 11; j++) {
         const col = document.createElement('div');
-        // col.setAttribute('class', 'col')
         if (j % 2 === 0) {
           col.setAttribute('class', 'dot')
         } else {
@@ -826,6 +807,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.innerHTML.length === 0) {
           if (game.turn) {
             game.clearArr();
+            game.moveAgain();
             game.playerTurn.innerText = "It's Player Y's Turn!";
             e.target.setAttribute('class', 'h_line playerX');
             e.target.setAttribute('isClicked', 'true');
@@ -833,7 +815,6 @@ document.addEventListener('DOMContentLoaded', () => {
             game.box1();
             game.inGameScore();
             game.winCheck();
-            // game.moveAgain();
             game.turn = false;
 
           }else {
@@ -845,7 +826,6 @@ document.addEventListener('DOMContentLoaded', () => {
             game.box1();
             game.inGameScore();
             game.winCheck();
-            // game.moveAgain();
             game.turn = true;
 
           };
@@ -856,7 +836,6 @@ document.addEventListener('DOMContentLoaded', () => {
     for (var i = 0; i < game.v_linesArray.length; i++) {
       game.v_linesArray[i].addEventListener('click', function (e) {
         if (e.target.innerHTML.length === 0) {
-          console.log(game.boxesTaken);
           if (game.turn) {
             game.clearArr();
             game.playerTurn.innerText = "It's Player Y's Turn!";
@@ -866,7 +845,6 @@ document.addEventListener('DOMContentLoaded', () => {
             game.box1();
             game.inGameScore();
             game.winCheck();
-            // game.moveAgain();
             game.turn = false;
 
           }else {
@@ -878,7 +856,6 @@ document.addEventListener('DOMContentLoaded', () => {
             game.box1();
             game.inGameScore();
             game.winCheck();
-            // game.moveAgain();
             game.turn = true;
 
           };
