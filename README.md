@@ -6,7 +6,7 @@
 Create a game using the skills you've learned so far.
 
 For my game, I decided to recreate a 5x5 version of the dots and boxes. 
-Dots and boxes is a two player game in which each player take turns drawing lines between the dots on the game board either horizontally or vertically. The player who draws the last line on a 1x1 box wins the box and thus also earns a point. When a box is taken then the player who took that box gets another turn. This continues until the whole grid is full, in this case all 25 boxes are taken, and no more lines can be drawn. The player with the most boxes at the end of the game wins.
+Dots and boxes is a two player game in which each player take turns drawing lines between the dots on the game board either horizontally or vertically. The player who draws the last line on a 1x1 box wins the box and thus also earns a point. This continues until the whole grid is full, in this case all 25 boxes are taken, and no more lines can be drawn. The player with the most boxes at the end of the game wins.
 
 
 ####Tech Used :

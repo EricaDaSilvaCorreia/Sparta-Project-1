@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   game.playerTurn = document.getElementById('playerturn');
   game.scoreX = document.getElementById('scoreX');
   game.scoreY = document.getElementById('scoreY');
-  game.resetBtn = document.getElementById('reset')
+  game.resetBtn = document.getElementById('reset');
+  game.howToPlay = document.getElementById('how');
   game.turn = true;
   game.plane = document.createElement('div');
   // game.match = false;
@@ -235,8 +236,6 @@ document.addEventListener('DOMContentLoaded', () => {
               game.boxesTaken.push(game.boxes[6].attributes[0].value);
               game.boxesTakenX.push(game.boxes[0].attributes[0].value);
               game.boxes[6].setAttribute('isColored', 'true');
-              console.log(game.boxesTaken);
-
             }//close if 5
           }//close if 4
         }//close if 3
@@ -807,7 +806,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.innerHTML.length === 0) {
           if (game.turn) {
             game.clearArr();
-            game.moveAgain();
             game.playerTurn.innerText = "It's Player Y's Turn!";
             e.target.setAttribute('class', 'h_line playerX');
             e.target.setAttribute('isClicked', 'true');
