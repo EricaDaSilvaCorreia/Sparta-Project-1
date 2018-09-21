@@ -765,7 +765,7 @@ document.addEventListener('DOMContentLoaded', () => {
           col.setAttribute('class', 'h_line');
           col.setAttribute('data-col', `${j}`);
           col.setAttribute('data-row', `${i}`);
-          col.setAttribute('isClicked', 'false');
+          // col.setAttribute('isClicked', 'false');
           game.h_linesArray.push(col);
         }
         row.appendChild(col)
@@ -777,7 +777,7 @@ document.addEventListener('DOMContentLoaded', () => {
           col.setAttribute('class', 'v_line');
           col.setAttribute('data-col', `${j}`);
           col.setAttribute('data-row', `${i}`);
-          col.setAttribute('isClicked', 'false')
+          // col.setAttribute('isClicked', 'false')
           game.v_linesArray.push(col);
         } else {
           col.setAttribute('class', 'box')

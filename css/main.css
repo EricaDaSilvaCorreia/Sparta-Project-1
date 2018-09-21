@@ -43,24 +43,31 @@
 #board {
   display: inline-block;
   padding-top: 30px;
+  justify-content: center;
+  margin-left: 25%;
+  padding-bottom: 50px;
+
   /* background-color: grey; */
 }
 
 #scoreX{
-  padding-right: 50px;
+  padding-right: 70px;
 }
 
-#scoreX, #scoreY{
-  display: inline;
-    font-size: 14px;
-    padding-top: 30px;
+.Scores, .buttons{
+  display: flex;
+  font-size: 14px;
+  padding-top: 30px;
+  padding-left: 160px;
+  font-family: Courier;
 }
 
-button{
-  margin-top: 25px;
+#how{
+  margin-left: 160px;
 }
 
-body {
-  align-items: center;
-  
+h2 {
+    margin-left: 25%;
+    justify-content: center;
+    font-family: Courier;
 }
