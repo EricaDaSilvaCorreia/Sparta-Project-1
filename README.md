@@ -23,7 +23,7 @@ Dots and boxes is a two player game in which each player take turns drawing line
 
 -----
 
-##### Link to live page :
+##### Link to live page : [**https://ericadasilvacorreia.github.io/Sparta-Project-1/**](https://ericadasilvacorreia.github.io/Sparta-Project-1/)
 
 --------
 
